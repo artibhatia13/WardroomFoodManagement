@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/screens/unit_screens/unit_login.dart';
 import 'package:flutter_application_1/screens/user_screens/user_login.dart';
 import 'package:flutter_application_1/widgets/custom_scaffold.dart';
 
@@ -38,7 +39,10 @@ class WelcomeScreen extends StatelessWidget {
               height: 40,
               child: ElevatedButton(
                 onPressed: () {
-                  // Action to be performed for Wardroom Login
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const UnitLogin()),
+                  );
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.white.withOpacity(0.45),

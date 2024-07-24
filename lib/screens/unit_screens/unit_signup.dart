@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/screens/unit_screens/unit_login.dart';
 import 'package:flutter_application_1/screens/user_screens/user_homepage.dart';
-import 'package:flutter_application_1/screens/user_screens/user_menu.dart';
-import 'package:intl/intl.dart';
 import 'package:flutter_application_1/screens/user_screens/user_login.dart';
 import 'package:flutter_application_1/theme/colors.dart';
 
-class UserSignin extends StatelessWidget {
-  const UserSignin({super.key});
+class UnitSignup extends StatelessWidget {
+  const UnitSignup({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -58,7 +57,7 @@ class UserSignin extends StatelessWidget {
                         color: AppColors.orange200,
                       )),
                   SizedBox(height: 3.0),
-                  Text("Create your new account",
+                  Text("Create a new Unit",
                       style: TextStyle(
                         fontSize: 13.0,
                         fontWeight: FontWeight.w100,
@@ -80,7 +79,7 @@ class UserSignin extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const UserSignin()),
+                            builder: (context) => const UnitLogin()),
                       );
                     },
                     child: const Text.rich(
@@ -150,12 +149,6 @@ class _SignUpFormState extends State<SignUpForm> {
           _buildPasswordField(),
           const SizedBox(height: 17.0),
           _buildConfirmPasswordField(),
-          const SizedBox(height: 17.0),
-          _buildUnitIdField(),
-          const SizedBox(height: 17.0),
-          _buildLastDayInUnitPicker(context),
-          const SizedBox(height: 17.0),
-          _buildPreferenceDropdown(),
           const SizedBox(height: 50.0),
           _buildSignUpButton(),
         ],
@@ -166,7 +159,7 @@ class _SignUpFormState extends State<SignUpForm> {
   Widget _buildNameField() {
     return TextFormField(
       decoration: InputDecoration(
-        labelText: 'Name',
+        labelText: 'Unit Name',
         errorText: _rankError ? 'Name should not include rank' : null,
       ),
       validator: (value) {
@@ -193,7 +186,7 @@ class _SignUpFormState extends State<SignUpForm> {
   Widget _buildMobileNumberField() {
     return TextFormField(
       decoration: InputDecoration(
-        labelText: 'Mobile Number',
+        labelText: 'City & State',
         errorText:
             _mobileError ? 'Please enter a valid 10-digit mobile number' : null,
       ),
@@ -254,88 +247,6 @@ class _SignUpFormState extends State<SignUpForm> {
       },
       onSaved: (value) => _confirmPassword = value,
     );
-  }
-
-  Widget _buildUnitIdField() {
-    return TextFormField(
-      decoration: const InputDecoration(
-        labelText: 'Unit ID',
-      ),
-      validator: (value) {
-        if (value == null || value.isEmpty) {
-          return 'Please enter your unit ID';
-        }
-        return null;
-      },
-      onSaved: (value) => _unitId = value,
-    );
-  }
-
-  Widget _buildLastDayInUnitPicker(BuildContext context) {
-    return TextField(
-      readOnly: true,
-      controller: _lastDayInUnit,
-      decoration: InputDecoration(
-        labelText: "Last day in Unit",
-        suffixIcon: Icon(
-          Icons.today,
-          color: AppColors.orange200.withOpacity(0.8),
-        ),
-      ),
-      onTap: () async {
-        DateTime? pickedDate = await showDatePicker(
-          context: context,
-          initialDate: _selectedDate ?? DateTime.now(),
-          firstDate: DateTime.now(),
-          lastDate: DateTime(2100),
-        );
-        if (pickedDate != null) {
-          setState(() {
-            _selectedDate = pickedDate;
-            String formattedDate = DateFormat('dd-MM-yy').format(pickedDate);
-            _lastDayInUnit.text = formattedDate;
-          });
-        }
-      },
-    );
-  }
-
-  Widget _buildPreferenceDropdown() {
-    return SizedBox(
-        width: double.infinity,
-        child: DropdownMenu(
-          expandedInsets: EdgeInsets.zero,
-          // width: double.infinity,
-          label: const Text("Preference"),
-          onSelected: (preference) {
-            if (preference != null) {
-              setState(() {
-                _preference = preference;
-              });
-            }
-          },
-          textStyle: const TextStyle(
-            fontSize: 13.0,
-          ),
-          menuStyle: const MenuStyle(
-              backgroundColor: WidgetStatePropertyAll(Colors.white)),
-          dropdownMenuEntries: const <DropdownMenuEntry<String>>[
-            DropdownMenuEntry(
-                value: "veg",
-                label: "Vegetarian",
-                leadingIcon: Icon(
-                  Icons.ramen_dining,
-                  color: Colors.green,
-                )),
-            DropdownMenuEntry(
-                value: "nonveg",
-                label: "Non-Vegetarian",
-                leadingIcon: Icon(
-                  Icons.set_meal,
-                  color: Colors.red,
-                )),
-          ],
-        ));
   }
 
   Widget _buildSignUpButton() {

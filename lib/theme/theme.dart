@@ -8,6 +8,7 @@ final ThemeData appTheme = ThemeData(
     primary: AppColors.orange200,
   ),
   primaryColor: AppColors.orange200,
+  scaffoldBackgroundColor: Colors.grey[100],
   textTheme: const TextTheme(
     headlineSmall: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
     titleMedium: TextStyle(fontSize: 16.0),
@@ -68,6 +69,8 @@ final ThemeData appTheme = ThemeData(
     foregroundColor: WidgetStateProperty.all(Colors.white),
     padding: WidgetStateProperty.all(
         const EdgeInsets.symmetric(vertical: 8.0, horizontal: 10.0)),
+    textStyle:
+        const WidgetStatePropertyAll(TextStyle(fontWeight: FontWeight.w500)),
   )),
   datePickerTheme: const DatePickerThemeData(backgroundColor: Colors.white),
 );

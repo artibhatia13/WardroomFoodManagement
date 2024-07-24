@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/screens/unit_screens/unit_signup.dart';
 import 'package:flutter_application_1/screens/user_screens/user_homepage.dart';
 import 'package:flutter_application_1/screens/user_screens/user_signin.dart';
 import 'package:flutter_application_1/screens/welcome_screen.dart';
 import 'package:flutter_application_1/widgets/custom_scaffold.dart';
 import 'package:flutter_application_1/theme/colors.dart';
 
-class UserLogin extends StatelessWidget {
-  const UserLogin({super.key});
+class UnitLogin extends StatelessWidget {
+  const UnitLogin({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -70,7 +71,7 @@ class UserLogin extends StatelessWidget {
                                     color: AppColors.orange200,
                                   )),
                               SizedBox(height: 3.0),
-                              Text("Login to your account",
+                              Text("Login to your Unit",
                                   style: TextStyle(
                                     fontSize: 13.0,
                                     fontWeight: FontWeight.w100,
@@ -85,7 +86,7 @@ class UserLogin extends StatelessWidget {
                               children: <Widget>[
                                 TextField(
                                   decoration: InputDecoration(
-                                    labelText: "Mobile No.",
+                                    labelText: "Unit ID",
                                   ),
                                 ),
                                 SizedBox(height: 17.0),
@@ -142,7 +143,7 @@ class UserLogin extends StatelessWidget {
                                       context,
                                       MaterialPageRoute(
                                           builder: (context) =>
-                                              const UserSignin()),
+                                              const UnitSignup()),
                                     );
                                   },
                                   child: const Text.rich(
