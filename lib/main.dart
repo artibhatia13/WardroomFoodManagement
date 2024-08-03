@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Wardroom Dine',
       theme: appTheme,
-      home: const UnitHomepage(),
+      home: const WelcomeScreen(),
     );
   }
 }
