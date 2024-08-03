@@ -6,10 +6,10 @@ class CustomLine extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 1.0,
+      height: 0.7,
       width: double.infinity,
       decoration: BoxDecoration(
-        color: Colors.grey[350],
+        color: Colors.grey[500],
       ),
     );
   }

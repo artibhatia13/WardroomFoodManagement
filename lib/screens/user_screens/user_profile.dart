@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/theme/colors.dart';
+import 'package:flutter_application_1/widgets/custom_line.dart';
 
 class UserProfile extends StatefulWidget {
   const UserProfile({super.key});
@@ -91,6 +92,8 @@ class _UserProfileState extends State<UserProfile> {
               ),
             ],
           ),
+          CustomLine(),
+
           if (isEditingPersonal) ...[
             const SizedBox(height: 16.0),
             TextFormField(
@@ -147,6 +150,8 @@ class _UserProfileState extends State<UserProfile> {
               ),
             ],
           ),
+          CustomLine(),
+
           if (isEditingDate) ...[
             const SizedBox(height: 16.0),
             TextFormField(
@@ -222,6 +227,8 @@ class _UserProfileState extends State<UserProfile> {
               ),
             ],
           ),
+          CustomLine(),
+
           if (isEditingDutyDate) ...[
             const SizedBox(height: 16.0),
             TextFormField(
